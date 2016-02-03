@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>NameCase by tamtamchik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">NameCase</h1>
+      <h2 class="project-tagline">This package allows you to convert names into the correct case where possible.</h2>
+      <a href="https://github.com/tamtamchik/namecase" class="btn">View on GitHub</a>
+      <a href="https://github.com/tamtamchik/namecase/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/tamtamchik/namecase/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="namecase-" class="anchor" href="#namecase-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NameCase <a href="https://insight.sensiolabs.com/projects/660fea1e-d105-4064-9caa-f47e8a282f2a"><img src="https://insight.sensiolabs.com/projects/660fea1e-d105-4064-9caa-f47e8a282f2a/small.png" alt="SensioLabsInsight"></a>
+</h1>
+
+<p><a href="https://packagist.org/packages/tamtamchik/namecase"><img src="https://img.shields.io/packagist/v/tamtamchik/namecase.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
+<a href="https://travis-ci.org/tamtamchik/namecase"><img src="https://img.shields.io/travis/tamtamchik/namecase/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/tamtamchik/namecase/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/tamtamchik/namecase.svg?style=flat-square" alt="Coverage Status"></a>
+<a href="https://scrutinizer-ci.com/g/tamtamchik/namecase"><img src="https://img.shields.io/scrutinizer/g/tamtamchik/namecase.svg?style=flat-square" alt="Quality Score"></a>
+<a href="https://packagist.org/packages/tamtamchik/namecase"><img src="https://img.shields.io/packagist/dt/tamtamchik/namecase.svg?style=flat-square" alt="Total Downloads"></a></p>
+
+<p>Forenames and surnames are often stored either wholly in UPPERCASE or wholly in lowercase. This package allows you to convert names into the correct case where possible. Although forenames and surnames are normally stored separately if they do appear in a single string, whitespace separated, NameCase deals correctly with them.  </p>
+
+<p>Currently correctly name cases names which include any of the following:  </p>
+
+<pre><code>Mc, Mac, al, el, ap, da, de, delle, della, den, di, du, del, der, la, le, lo, van and von.
+</code></pre>
+
+<p>It correctly deals with names which contain apostrophes and hyphens too.</p>
+
+<blockquote>
+<p><strong>Warning!</strong> This library contains global <code>str_name_case</code> function, that potentially can break your function with this name. Now you are warned!</p>
+</blockquote>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Via Composer</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require tamtamchik/namecase</pre></div>
+
+<blockquote>
+<p><strong>Warning!</strong> For PHP &lt; 5.6, please be sure to setup UTF-8 as defaut encoding in your <code>php.ini</code><br>
+<code>mbstring.internal_encoding = UTF-8;</code></p>
+</blockquote>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// As global function</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>KEITH<span class="pl-pds">"</span></span>);               <span class="pl-c">// =&gt; Keith</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>LEIGH-WILLIAMS<span class="pl-pds">"</span></span>);      <span class="pl-c">// =&gt; Leigh-Williams</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>MCCARTHY<span class="pl-pds">"</span></span>);            <span class="pl-c">// =&gt; McCarthy</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>O'CALLAGHAN<span class="pl-pds">"</span></span>);         <span class="pl-c">// =&gt; O'Callaghan</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>ST. JOHN<span class="pl-pds">"</span></span>);            <span class="pl-c">// =&gt; St. John</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>VON STREIT<span class="pl-pds">"</span></span>);          <span class="pl-c">// =&gt; von Streit</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>AP LLWYD DAFYDD<span class="pl-pds">"</span></span>);     <span class="pl-c">// =&gt; ap Llwyd Dafydd</span></span>
+<span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>HENRY VIII<span class="pl-pds">"</span></span>);          <span class="pl-c">// =&gt; Henry VIII</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// As static call</span></span>
+<span class="pl-s1"><span class="pl-c1">Formatter</span><span class="pl-k">::</span>nameCase(<span class="pl-s"><span class="pl-pds">"</span>VAN DYKE<span class="pl-pds">"</span></span>);      <span class="pl-c">// =&gt; van Dyke</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// As instance</span></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Tamtamchik\NameCase\Formatter</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$formatter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Formatter</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$formatter</span><span class="pl-k">-&gt;</span>nameCase(<span class="pl-s"><span class="pl-pds">"</span>LOUIS XIV<span class="pl-pds">"</span></span>);    <span class="pl-c">// =&gt; Louis XIV</span></span></pre></div>
+
+<h2>
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change log</h2>
+
+<p>Please see <a href="CHANGELOG.md">CHANGELOG</a> for more information what has changed recently.</p>
+
+<h2>
+<a id="testing--demo" class="anchor" href="#testing--demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing &amp; Demo</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ composer tests
+$ composer demo</pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please see <a href="CONTRIBUTING.md">CONTRIBUTING</a> and <a href="CONDUCT.md">CONDUCT</a> for details.</p>
+
+<h2>
+<a id="security" class="anchor" href="#security" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security</h2>
+
+<p>If you discover any security related issues, please email <a href="mailto:yuri.tam.tkachenko@gmail.com">yuri.tam.tkachenko@gmail.com</a> instead of using the issue tracker.</p>
+
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<p>This library is a port of the <a href="https://metacpan.org/release/BARBIE/Lingua-EN-NameCase-1.19">Perl library</a>, and owes most of its functionality to the Perl version by Mark Summerfield.<br>
+I also used some solutions from <a href="https://github.com/tenderlove/namecase">Ruby version</a> by Aaron Patterson.<br>
+Any bugs in the PHP port are my fault.</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Original PERL <code>Lingua::EN::NameCase</code> Version: </p>
+
+<ul>
+<li>Copyright © Mark Summerfield 1998-2014. All Rights Reserved. </li>
+<li>Copyright © Barbie 2014-2015. All Rights Reserved.</li>
+</ul>
+
+<p>Ruby Version: </p>
+
+<ul>
+<li>Copyright © Aaron Patterson 2006. All Rights Reserved.</li>
+</ul>
+
+<p>PHP Version:</p>
+
+<ul>
+<li><a href="https://github.com/tamtamchik">Yuri Tkachenko</a></li>
+<li><a href="../../contributors">All Contributors</a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT). Please see <a href="LICENSE.md">License File</a> for more information.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/tamtamchik/namecase">NameCase</a> is maintained by <a href="https://github.com/tamtamchik">tamtamchik</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
