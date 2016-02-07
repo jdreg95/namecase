@@ -34,7 +34,7 @@
 
 <p>Currently correctly name cases names which include any of the following:  </p>
 
-<pre><code>Mc, Mac, al, el, ap, da, de, delle, della, den, di, du, del, der, la, le, lo, van and von.
+<pre><code>Mc, Mac, al, el, ap, da, de, delle, della, di, du, del, der, den, la, le, lo, van and von.
 </code></pre>
 
 <p>It correctly deals with names which contain apostrophes and hyphens too.</p>
@@ -68,11 +68,12 @@
 <span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>AP LLWYD DAFYDD<span class="pl-pds">"</span></span>);     <span class="pl-c">// =&gt; ap Llwyd Dafydd</span></span>
 <span class="pl-s1">str_name_case(<span class="pl-s"><span class="pl-pds">"</span>HENRY VIII<span class="pl-pds">"</span></span>);          <span class="pl-c">// =&gt; Henry VIII</span></span>
 <span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Tamtamchik\NameCase\Formatter</span>;</span>
+<span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">// As static call</span></span>
 <span class="pl-s1"><span class="pl-c1">Formatter</span><span class="pl-k">::</span>nameCase(<span class="pl-s"><span class="pl-pds">"</span>VAN DYKE<span class="pl-pds">"</span></span>);      <span class="pl-c">// =&gt; van Dyke</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">// As instance</span></span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Tamtamchik\NameCase\Formatter</span>;</span>
 <span class="pl-s1"><span class="pl-smi">$formatter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Formatter</span>();</span>
 <span class="pl-s1"><span class="pl-smi">$formatter</span><span class="pl-k">-&gt;</span>nameCase(<span class="pl-s"><span class="pl-pds">"</span>LOUIS XIV<span class="pl-pds">"</span></span>);    <span class="pl-c">// =&gt; Louis XIV</span></span></pre></div>
 
