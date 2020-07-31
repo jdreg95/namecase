@@ -49,7 +49,7 @@ class Formatter
         '\bDe([lrn])\b'         => 'de\1',      // del Italian; der/den Dutch/Flemish.
         '\bL([eo])\b'           => 'l\1',       // lo Italian; le French.
         '\bTe([rn])\b'          => 'te\1',      // ten, ter Dutch/Flemish.
-        '\bVan(?=\s+\w)'        => 'van',       // van German or forename Van.
+        '\bVan(?=\s+[\w\'])'    => 'van',       // van German or forename Van.
         '\bVon\b'               => 'von',       // von Dutch/Flemish.
     ];
 
